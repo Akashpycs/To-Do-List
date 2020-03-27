@@ -19,5 +19,6 @@ from .import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home' ),
+    path('query', views.query, name='query' ),
     path('task/', include('task.urls'), name='app_task'),
 ]

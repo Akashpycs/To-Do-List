@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
 
-
 {% block body %}
+
+
+<div class="container my-4">
+    <h4>Original Task : {{preTask}}</h4>
+</div>
+
 <div class="container my-4">
     <form method='post', action=''>
     {% csrf_token %}
     <div class="form-group my-4">
-        <label for="task">Task</label>
+        <label for="task">Edit</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" name='task', id='task'>
         <small id="emailHelp" class="form-text text-muted">We remember Your Priorities</small>
     </div>
-    <button type="submit" class="btn btn-primary">Add Task</button>
+    <button type="submit" class="btn btn-primary">Edit Task</button>
     </form>
 </div>
 

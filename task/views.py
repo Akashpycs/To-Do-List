@@ -13,6 +13,7 @@ def add(request):
         task_obj = Task(task_name = task, status='incomplete')
         task_obj.save()
         messages.success(request, 'saved')
+        return redirect('/')
 
     return render(request, 'task/addTask.html')
 
@@ -33,3 +34,16 @@ def complete(request, id):
         i.save()
         messages.info(request, "Status Updated")
     return redirect('/')
+
+
+def editTask(request, Tid):
+    task_obj = Task.objects.get(task_id = Tid)
+    preTask = task_obj.task_name
+    if request.method=="POST":
+        task = request.POST.get('task','')
+        task_obj.task_name = task
+        task_obj.save()
+        messages.success(request, 'Edited')
+        return redirect('/')
+    data = {'preTask':preTask}
+    return render(request, 'task/editTask.html', data)

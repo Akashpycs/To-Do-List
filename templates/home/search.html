@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="container my-4">
-    <h3>Today</h3>
+    <h3>Query : {{query}}</h3>
 </div>
 {% if tasks %}
     {% for task in tasks %}
@@ -16,10 +16,8 @@
             Task : <h5 class="card-title">{{task.task_name}}</h5>
             Status : <h6 class="card-title">{{task.status}}</h6>
 
-            {% if task.status == "incomplete" %}
             <a href="/task/compl_task/{{task.task_id}}" class="btn btn-primary mx-2">Completed ! </a>
             <a href="/task/edit_task/{{task.task_id}}" class="btn btn-warning mx-2">Edit </a>
-            {% endif %}
             <a href="/task/remove_task/{{task.task_id}}" class="btn btn-danger">Delete</a>
         </div>
         </div>
@@ -27,7 +25,7 @@
     {% endfor %}
 {% else %}
 <div class="container">
-    <h1>No Task Today </h1>
+    <h1>No Reasult</h1>
 </div>
 {% endif %}
 
